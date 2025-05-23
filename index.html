@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style/style.css"/>
+</head>
+<body class="light-mode">
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="modeToggle" onchange="toggleMode()">
+      <span class="slider round"></span>
+    </label>
+    <span id="modeLabel">Light Mode</span>
+  </div>
+
+  <div class="app-container">
+    <div class="weather-card animated">
+      <h1 id="title">🌤️ Weather Checker</h1>
+
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem; align-items: center;">
+        <select id="languageSelect" onchange="changeLanguage()" style="padding: 0.5rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+          <option value="en">English</option>
+          <option value="th">ไทย</option>
+        </select>
+        <button onclick="resetApp()" id="resetButton" style="padding: 0.5rem 1rem; background-color: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+          Reset
+        </button>
+      </div>
+
+      <input type="text" id="cityInput" placeholder="Enter city name..." />
+      <button onclick="getWeather()" id="searchButton">Search</button>
+      <div class="result" id="result"></div>
+      <div class="forecast" id="forecast"></div>
+      <div class="map" id="map" style="height: 300px; margin-top: 20px; border-radius: 12px; overflow: hidden;"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
